@@ -44,7 +44,12 @@ const About = () => {
               
               <div>
                 <h4 className="font-bold text-navy-900 mb-2">Email:</h4>
-                <p className="text-gray-700">boedi.fiqih@example.com</p>
+                <a
+                  href="mailto:contact@bmmf.site"
+                  className="text-gray-700 hover:text-teal-600 transition-colors duration-300"
+                >
+                  contact@bmmf.site
+                </a>
               </div>
               
               <div>
@@ -54,14 +59,10 @@ const About = () => {
               
               <div>
                 <h4 className="font-bold text-navy-900 mb-2">Available for:</h4>
-                <p className="text-gray-700">Freelance & Full-time</p>
+                <p className="text-gray-700">Freelance</p>
               </div>
             </div>
             
-            <Button className="bg-teal-500 hover:bg-teal-600 flex items-center gap-2">
-              <FileText size={16} />
-              <span>Download CV</span>
-            </Button>
           </div>
         </div>
       </div>

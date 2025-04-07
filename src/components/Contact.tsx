@@ -45,14 +45,14 @@ const Contact = () => {
     {
       icon: <Mail size={24} />,
       title: 'Email',
-      value: 'boedi.fiqih@example.com',
-      link: 'mailto:boedi.fiqih@example.com',
+      value: 'contact@bmmf.site',
+      link: 'mailto:contact@bmmf.site',
     },
     {
       icon: <Phone size={24} />,
       title: 'Phone',
-      value: '+62 123 456 7890',
-      link: 'tel:+621234567890',
+      value: '+62 856 7209 773',
+      link: 'tel:+628567209773',
     },
     {
       icon: <MapPin size={24} />,

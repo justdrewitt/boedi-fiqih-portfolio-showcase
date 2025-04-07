@@ -1,8 +1,7 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
-	darkMode: ["class"],
+	darkMode: "class",
 	content: [
 		"./pages/**/*.{ts,tsx}",
 		"./components/**/*.{ts,tsx}",
@@ -77,7 +76,7 @@ export default {
 					500: '#0EA5E9',
 				},
 				navy: {
-					900: '#0F172A',
+					900: '#1a237e',
 				}
 			},
 			fontFamily: {
@@ -115,5 +114,5 @@ export default {
 			}
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [],
 } satisfies Config;
