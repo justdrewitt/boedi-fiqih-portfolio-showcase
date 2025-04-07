@@ -52,7 +52,15 @@ const services = [
   },
 ];
 
-const ServiceCard = ({ service }) => {
+interface ServiceProps {
+  service: {
+    title: string;
+    description: string;
+    icon: JSX.Element;
+  };
+}
+
+const ServiceCard = ({ service }: ServiceProps) => {
   return (
     <Card className="hover:shadow-lg transition-all duration-300 group h-full">
       <CardContent className="p-6 flex flex-col h-full">
