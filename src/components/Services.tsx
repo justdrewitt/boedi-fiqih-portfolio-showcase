@@ -22,12 +22,12 @@ const services = [
   },
   {
     title: 'SEO Optimization',
-    description: 'Improving your website's visibility in search engine results and driving organic traffic.',
+    description: 'Improving your website\'s visibility in search engine results and driving organic traffic.',
     icon: <Search size={24} />,
   },
   {
     title: 'Technical SEO',
-    description: 'Enhancing your website's architecture and infrastructure for better crawling and indexing by search engines.',
+    description: 'Enhancing your website\'s architecture and infrastructure for better crawling and indexing by search engines.',
     icon: <Code size={24} />,
   },
   {
