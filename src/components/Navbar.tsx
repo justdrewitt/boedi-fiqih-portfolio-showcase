@@ -117,50 +117,70 @@ const Navbar = () => {
             <Menu className="h-6 w-6 text-gray-600 dark:text-gray-300" />
           )}
         </button>
+      </div>
 
-        {/* Mobile menu */}
-        <nav className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'}`}>
-          <div className="container py-4 flex flex-col space-y-2">
+      {/* Mobile menu */}
+      <div
+        className={`md:hidden fixed left-0 right-0 top-[calc(var(--header-height,60px))] bg-white dark:bg-navy-900 shadow-lg transform transition-all duration-300 ease-in-out ${
+          isMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-10 opacity-0 pointer-events-none'
+        } z-40`}
+      >
+        <div className="container mx-auto py-4 px-4">
+          <nav className="flex flex-col space-y-4">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 to={link.href}
                 onClick={toggleMenu}
-                className="px-4 py-2 text-sm font-medium hover:text-teal-500 transition-colors flex items-center space-x-2"
+                className="flex items-center space-x-4 px-4 py-3 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-navy-800 hover:text-teal-500 transition-all duration-200"
               >
-                <span className="text-gray-600 dark:text-gray-300 group-hover:text-teal-500 transition-colors">
-                  {link.icon}
-                </span>
-                <span className="text-gray-600 dark:text-gray-300 group-hover:text-teal-500 transition-colors">
-                  {link.name}
-                </span>
+                <span className="text-teal-500">{link.icon}</span>
+                <span className="font-medium">{link.name}</span>
               </Link>
             ))}
 
+            <div className="h-px bg-gray-200 dark:bg-gray-700 my-2"></div>
+
             {/* Search button */}
             <button 
-              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-navy-800 transition-colors"
+              onClick={toggleMenu}
+              className="flex items-center space-x-4 px-4 py-3 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-navy-800 hover:text-teal-500 transition-all duration-200"
             >
-              <Search className="h-5 w-5 text-gray-600 dark:text-gray-300" />
+              <span className="text-teal-500">
+                <Search className="h-5 w-5" />
+              </span>
+              <span className="font-medium">Search</span>
             </button>
 
             {/* Theme toggle */}
             <button 
-              onClick={toggleDarkMode}
-              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-navy-800 transition-colors"
+              onClick={() => {
+                toggleDarkMode();
+                toggleMenu();
+              }}
+              className="flex items-center space-x-4 px-4 py-3 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-navy-800 hover:text-teal-500 transition-all duration-200"
             >
-              {isDarkMode ? (
-                <Sun className="h-5 w-5 text-gray-600 dark:text-gray-300" />
-              ) : (
-                <Moon className="h-5 w-5 text-gray-600 dark:text-gray-300" />
-              )}
+              <span className="text-teal-500">
+                {isDarkMode ? (
+                  <Sun className="h-5 w-5" />
+                ) : (
+                  <Moon className="h-5 w-5" />
+                )}
+              </span>
+              <span className="font-medium">{isDarkMode ? 'Light Mode' : 'Dark Mode'}</span>
             </button>
 
-            <Button className="mt-2 bg-teal-500 hover:bg-teal-600 text-white dark:text-white px-6 py-2">
-              <Link to="/contact" onClick={toggleMenu}>Hire Me</Link>
-            </Button>
-          </div>
-        </nav>
+            <div className="pt-4">
+              <Button 
+                className="w-full bg-teal-500 hover:bg-teal-600 text-white py-3 flex items-center justify-center space-x-2"
+                onClick={toggleMenu}
+              >
+                <Mail className="h-4 w-4" />
+                <span>Hire Me</span>
+              </Button>
+            </div>
+          </nav>
+        </div>
       </div>
     </header>
   );
