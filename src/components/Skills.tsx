@@ -1,6 +1,6 @@
 
 import { Progress } from '@/components/ui/progress';
-import { Code, LineChart, Search } from 'lucide-react';
+import { Code, LineChart, Search, Brain } from 'lucide-react';
 
 const frontendSkills = [
   { name: 'HTML/CSS', level: 95 },
@@ -24,6 +24,14 @@ const seoSkills = [
   { name: 'Technical SEO', level: 85 },
   { name: 'Google Analytics', level: 90 },
   { name: 'Search Console', level: 85 },
+];
+
+const aiSkills = [
+  { name: 'Machine Learning', level: 80 },
+  { name: 'Natural Language Processing', level: 85 },
+  { name: 'ChatGPT Integration', level: 90 },
+  { name: 'AI Development', level: 75 },
+  { name: 'Data Analysis', level: 85 },
 ];
 
 const SkillCategory = ({ title, skills, icon }) => {
@@ -62,10 +70,11 @@ const Skills = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <SkillCategory title="Frontend Development" skills={frontendSkills} icon={<Code size={24} />} />
           <SkillCategory title="Backend Development" skills={backendSkills} icon={<LineChart size={24} />} />
           <SkillCategory title="SEO Expertise" skills={seoSkills} icon={<Search size={24} />} />
+          <SkillCategory title="AI Skills" skills={aiSkills} icon={<Brain size={24} />} />
         </div>
       </div>
     </section>
