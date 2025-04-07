@@ -119,7 +119,7 @@ const projects = [
     id: 12,
     title: 'E-Learning Platform',
     category: 'Education',
-    image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff',
+    image: '/assets/images/elearning.webp',
     description: 'A comprehensive e-learning platform with course management, video lectures, and interactive quizzes.',
     technologies: ['React', 'Node.js', 'MongoDB', 'Stripe', 'WebRTC', 'Redis'],
     demoLink: '#',
