@@ -6,6 +6,7 @@ import { visualizer } from "rollup-plugin-visualizer";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  base: "/",
   server: {
     host: "::",
     port: 8080,
@@ -41,6 +42,7 @@ export default defineConfig(({ mode }) => ({
         },
       },
     },
+    assetsInclude: ['**/*.webp', '**/*.woff2'],
   },
   optimizeDeps: {
     include: [
