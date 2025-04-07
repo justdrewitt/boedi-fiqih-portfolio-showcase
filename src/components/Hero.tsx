@@ -62,7 +62,7 @@ const Hero = () => {
             <div className="absolute -bottom-8 -left-8 w-56 h-56 bg-orange-500 rounded-full opacity-20"></div>
             <div className="relative bg-white p-4 rounded-2xl shadow-lg">
               <img 
-                src="/fotome.png" 
+                src="/assets/images/fotome.webp" 
                 alt="Boedi Fiqih - Web Developer" 
                 className="rounded-xl w-full h-90 object-fit-cover"
               />
