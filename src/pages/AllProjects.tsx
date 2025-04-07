@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { ExternalLink, Github } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Card, CardContent } from '@/components/ui/card';
+import { ExternalLink, Github } from 'lucide-react';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 
 const projects = [
   {
@@ -280,97 +280,41 @@ const ProjectCard = ({ project }) => {
   );
 };
 
-const Projects = () => {
-  const [filter, setFilter] = useState('All');
-  const categories = ['All', 'Frontend', 'Backend', 'Full Stack', 'SEO', 'AI', 'Mobile', 'Finance', 'Blockchain', 'IoT', 'Education', 'Marketing'];
-
-  const filteredProjects = filter === 'All' 
-    ? projects 
-    : projects.filter(project => project.category === filter);
-
+const AllProjects = () => {
   return (
-    <section id="projects" className="section-padding">
-      <div className="container">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center max-w-3xl mx-auto mb-12"
-        >
-          <h3 className="section-subtitle">My Work</h3>
-          <h2 className="section-title">Featured Projects</h2>
-          <p className="text-gray-700">
-            Here are some of my recent projects that showcase my skills and expertise.
-          </p>
-        </motion.div>
-        
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="flex justify-center mb-10"
-        >
-          <div className="inline-flex flex-wrap gap-2 justify-center">
-            {categories.map((category) => (
-              <motion.button
-                key={category}
-                onClick={() => setFilter(category)}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className={`px-4 py-2 rounded-lg transition-colors duration-300 ${
-                  filter === category 
-                    ? 'bg-teal-500 hover:bg-teal-600' 
-                    : 'border-teal-500 text-navy-900 hover:bg-teal-500 hover:text-white'
-                }`}
-              >
-                {category}
-              </motion.button>
-            ))}
-          </div>
-        </motion.div>
-        
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
-          {filteredProjects.length > 0 ? (
-            filteredProjects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
-            ))
-          ) : (
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="col-span-full text-center py-12"
-            >
-              <p className="text-gray-500 text-lg">No projects found in this category.</p>
-            </motion.div>
-          )}
-        </motion.div>
-
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mt-12"
-        >
-          <Button 
-            className="bg-teal-500 hover:bg-teal-600"
-            asChild
+    <>
+      <Navbar />
+      <section className="section-padding">
+        <div className="container relative z-10">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center max-w-3xl mx-auto mb-12"
           >
-            <a href="/projects">View All Projects</a>
-          </Button>
-        </motion.div>
-      </div>
-    </section>
+            <h2 className="section-title">All Projects</h2>
+            <p className="text-gray-700">
+              Explore all my projects showcasing various technologies and skills.
+            </p>
+          </motion.div>
+          
+          <motion.div 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            {projects.map((project) => (
+              <ProjectCard key={project.id} project={project} />
+            ))}
+          </motion.div>
+        </div>
+      </section>
+      <Footer />
+    </>
   );
 };
 
-export default Projects;
+export default AllProjects;

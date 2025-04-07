@@ -1,4 +1,3 @@
-
 import { Button } from '@/components/ui/button';
 import { ChevronDown, Github, Linkedin, Twitter } from 'lucide-react';
 
@@ -59,13 +58,13 @@ const Hero = () => {
           </div>
           
           <div className="relative hidden lg:block">
-            <div className="absolute -top-4 -right-4 w-72 h-72 bg-teal-500 rounded-full opacity-20"></div>
-            <div className="absolute -bottom-8 -left-8 w-64 h-64 bg-orange-500 rounded-full opacity-20"></div>
+            <div className="absolute -top-4 -right-4 w-64 h-64 bg-teal-500 rounded-full opacity-20"></div>
+            <div className="absolute -bottom-8 -left-8 w-56 h-56 bg-orange-500 rounded-full opacity-20"></div>
             <div className="relative bg-white p-4 rounded-2xl shadow-lg">
               <img 
-                src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d" 
+                src="/fotome.png" 
                 alt="Boedi Fiqih - Web Developer" 
-                className="rounded-xl w-full h-auto object-cover"
+                className="rounded-xl w-full h-90 object-fit-cover"
               />
             </div>
           </div>
