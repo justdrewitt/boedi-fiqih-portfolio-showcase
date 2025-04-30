@@ -4,14 +4,11 @@ import Experience from '../components/About/Experience';
 import Education from '../components/About/Education';
 import Skills from '../components/About/Skills';
 import Languages from '../components/About/Languages';
-import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 const About = () => {
   return (
     <div className="min-h-screen flex flex-col">
-      <Navbar />
-      
       <main className="flex-grow">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

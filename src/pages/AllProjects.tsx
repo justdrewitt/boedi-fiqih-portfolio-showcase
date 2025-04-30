@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { ExternalLink, Github } from 'lucide-react';
-import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
 const projects = [
@@ -283,7 +282,6 @@ const ProjectCard = ({ project }) => {
 const AllProjects = () => {
   return (
     <>
-      <Navbar />
       <section className="section-padding">
         <div className="container relative z-10">
           <motion.div 

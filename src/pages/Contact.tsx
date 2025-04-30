@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import ContactForm from '../components/Contact/ContactForm';
-import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 const Contact = () => {
@@ -16,8 +15,6 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Navbar />
-      
       <main className="flex-grow">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

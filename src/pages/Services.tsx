@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import ServiceCard from '../components/Services/ServiceCard';
-import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 const services = [
@@ -125,8 +124,6 @@ const services = [
 const Services = () => {
   return (
     <div className="min-h-screen flex flex-col">
-      <Navbar />
-      
       <main className="flex-grow">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
