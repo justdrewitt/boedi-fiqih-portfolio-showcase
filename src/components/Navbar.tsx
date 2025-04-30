@@ -19,6 +19,7 @@ const navLinks = [
   { name: 'Projects', href: '/projects', icon: <Briefcase size={20} /> },
   { name: 'About', href: '/about', icon: <User size={20} /> },
   { name: 'Services', href: '/services', icon: <Settings size={20} /> },
+  { name: 'Blog', href: '/blog', icon: <Search size={20} /> },
   { name: 'Contact', href: '/contact', icon: <Mail size={20} /> },
 ];
 
