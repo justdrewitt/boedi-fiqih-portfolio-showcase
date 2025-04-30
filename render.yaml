@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: strapi
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: HOST
+        value: 0.0.0.0
+      - key: PORT
+        value: 1337
+      - key: APP_KEYS
+        value: "toBeChanged1,toBeChanged2"
+      - key: API_TOKEN_SALT
+        value: "toBeChanged3"
+      - key: ADMIN_JWT_SECRET
+        value: "toBeChanged4"
+      - key: TRANSFER_TOKEN_SALT
+        value: "toBeChanged5"
+      - key: JWT_SECRET
+        value: "toBeChanged6"
+      - key: DATABASE_URL
+        fromDatabase:
+          name: strapi-db
+          property: connectionString 
