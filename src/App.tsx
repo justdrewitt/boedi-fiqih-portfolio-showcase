@@ -9,12 +9,8 @@ import AllProjects from "./pages/AllProjects";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
-import Blog from "./pages/Blog";
+import BlogIndex from "./pages/blog/index";
 import { TestContentful } from "./pages/TestContentful";
-import GettingStarted from "./pages/blog/GettingStarted";
-import ReactBasics from "./pages/blog/ReactBasics";
-import AdvancedWebDev from "./pages/blog/AdvancedWebDev";
-import WebPerformance from "./pages/blog/WebPerformance";
 import ContentfulBlog from "./pages/blog/ContentfulBlog";
 import Navbar from "./components/Navbar";
 
@@ -37,7 +33,7 @@ const App = () => (
                 <Route path="/about" element={<About />} />
                 <Route path="/services" element={<Services />} />
                 <Route path="/contact" element={<Contact />} />
-                <Route path="/blog" element={<Blog />} />
+                <Route path="/blog" element={<BlogIndex />} />
                 <Route path="/blog/:slug" element={<ContentfulBlog />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
