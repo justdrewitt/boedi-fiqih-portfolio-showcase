@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "routes": [
+    {
+      "src": "/blog/:slug",
+      "dest": "/blog/ContentfulBlog"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ]
+}
