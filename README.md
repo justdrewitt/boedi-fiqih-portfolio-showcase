@@ -1,73 +1,91 @@
-# Welcome to your Lovable project
+# Boedi Fiqih Portfolio Showcase
 
-## Project info
+A modern, responsive portfolio website built with React, TypeScript, and Vite. This project showcases professional work, skills, and achievements with a clean and elegant design.
 
-**URL**: https://lovable.dev/projects/7acbce2d-eb55-4da0-9800-47f460cf1387
+## 🚀 Features
 
-## How can I edit this code?
+- **Modern Tech Stack**: Built with React, TypeScript, and Vite
+- **Beautiful UI**: Styled with Tailwind CSS and Shadcn UI components
+- **Responsive Design**: Fully responsive across all devices
+- **Content Management**: Integrated with Contentful CMS
+- **Performance Optimized**: Fast loading and smooth animations
+- **SEO Friendly**: Proper meta tags and structured data
+- **Dark Mode**: Support for light and dark themes
 
-There are several ways of editing your application.
+## 🛠️ Tech Stack
 
-**Use Lovable**
+- **Frontend Framework**: React 18
+- **Language**: TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS
+- **UI Components**: Shadcn UI
+- **State Management**: React Query
+- **Form Handling**: React Hook Form
+- **Routing**: React Router
+- **CMS**: Contentful
+- **Deployment**: Vercel
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/7acbce2d-eb55-4da0-9800-47f460cf1387) and start prompting.
+## 📦 Installation
 
-Changes made via Lovable will be committed automatically to this repo.
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/boedi-fiqih-portfolio-showcase.git
+cd boedi-fiqih-portfolio-showcase
+```
 
-**Use your preferred IDE**
+2. Install dependencies:
+```bash
+npm install
+```
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+3. Create a `.env` file in the root directory and add your Contentful credentials:
+```env
+VITE_CONTENTFUL_SPACE_ID=your_space_id
+VITE_CONTENTFUL_ACCESS_TOKEN=your_access_token
+```
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+4. Start the development server:
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## 🚀 Available Scripts
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+- `npm run vercel-build` - Build for Vercel deployment
 
-**Use GitHub Codespaces**
+## 📁 Project Structure
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```
+├── src/
+│   ├── components/     # Reusable UI components
+│   ├── pages/         # Page components
+│   ├── hooks/         # Custom React hooks
+│   ├── utils/         # Utility functions
+│   ├── styles/        # Global styles
+│   └── types/         # TypeScript type definitions
+├── public/            # Static assets
+└── scripts/           # Build and utility scripts
+```
 
-## What technologies are used for this project?
+## 🔧 Configuration
 
-This project is built with:
+- `vite.config.ts` - Vite configuration
+- `tailwind.config.ts` - Tailwind CSS configuration
+- `tsconfig.json` - TypeScript configuration
+- `vercel.json` - Vercel deployment configuration
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 📝 License
 
-## How can I deploy this project?
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-Simply open [Lovable](https://lovable.dev/projects/7acbce2d-eb55-4da0-9800-47f460cf1387) and click on Share -> Publish.
+## 👥 Contributing
 
-## Can I connect a custom domain to my Lovable project?
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-Yes it is!
+## 📞 Contact
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+For any inquiries, please reach out to [your-email@example.com](mailto:your-email@example.com)
