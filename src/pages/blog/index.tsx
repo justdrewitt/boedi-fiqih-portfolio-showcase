@@ -110,10 +110,11 @@ const BlogIndex: React.FC = () => {
   return (
     <Layout location={location}>
       <Seo
-        title="Blog | Boedi Fiqih"
+        title="Blog & Insights"
         description="Explore articles and tutorials on web development, programming, and technology."
         keywords={['Blog', 'Web Development', 'Programming', 'Technology']}
         url="/blog"
+        type="website"
       />
       
       {/* Hero Section dengan Gradient Background */}

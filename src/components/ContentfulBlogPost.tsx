@@ -43,20 +43,36 @@ export const ContentfulBlogPost: React.FC<BlogPostProps> = ({ post }) => {
   const codeStyles = `
     .prose {
       max-width: 100%;
-      font-size: 1.125rem;
+      font-size: 1rem;
+      padding: 0 1rem;
+    }
+    
+    @media (min-width: 640px) {
+      .prose {
+        font-size: 1.125rem;
+        padding: 0 1.5rem;
+      }
+    }
+    
+    @media (min-width: 1024px) {
+      .prose {
+        max-width: 65ch;
+        margin: 0 auto;
+        padding: 0;
+      }
     }
     
     .prose pre {
       background-color: #1a202c;
       color: #e2e8f0;
-      padding: 1.25rem;
+      padding: 1rem;
       border-radius: 0.5rem;
       overflow-x: auto;
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
       font-size: 0.875rem;
       line-height: 1.7;
       white-space: pre;
-      margin: 1.75rem 0;
+      margin: 1.5rem 0;
       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     }
     
@@ -78,26 +94,34 @@ export const ContentfulBlogPost: React.FC<BlogPostProps> = ({ post }) => {
     .prose p.code-paragraph {
       background-color: #1a202c;
       color: #e2e8f0;
-      padding: 1.25rem;
+      padding: 1rem;
       border-radius: 0.5rem;
       overflow-x: auto;
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
       font-size: 0.875rem;
       line-height: 1.7;
       white-space: pre;
-      margin: 1.75rem 0;
+      margin: 1.5rem 0;
       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     }
     
     .prose h2 {
-      margin-top: 2.5rem;
-      margin-bottom: 1.25rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
       font-weight: 700;
-      font-size: 2rem;
+      font-size: 1.75rem;
       line-height: 1.3;
       color: #1a202c;
       border-bottom: 1px solid #e2e8f0;
       padding-bottom: 0.5rem;
+    }
+    
+    @media (min-width: 640px) {
+      .prose h2 {
+        font-size: 2rem;
+        margin-top: 2.5rem;
+        margin-bottom: 1.25rem;
+      }
     }
     
     .dark .prose h2 {
@@ -106,12 +130,20 @@ export const ContentfulBlogPost: React.FC<BlogPostProps> = ({ post }) => {
     }
     
     .prose h3 {
-      margin-top: 2rem;
-      margin-bottom: 1rem;
+      margin-top: 1.75rem;
+      margin-bottom: 0.875rem;
       font-weight: 600;
-      font-size: 1.5rem;
+      font-size: 1.375rem;
       line-height: 1.4;
       color: #1a202c;
+    }
+    
+    @media (min-width: 640px) {
+      .prose h3 {
+        font-size: 1.5rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+      }
     }
     
     .dark .prose h3 {
@@ -121,7 +153,7 @@ export const ContentfulBlogPost: React.FC<BlogPostProps> = ({ post }) => {
     .prose ul, .prose ol {
       margin-top: 1.25rem;
       margin-bottom: 1.25rem;
-      padding-left: 1.625rem;
+      padding-left: 1.5rem;
     }
     
     .prose li {
@@ -144,8 +176,16 @@ export const ContentfulBlogPost: React.FC<BlogPostProps> = ({ post }) => {
     
     .prose img {
       border-radius: 0.5rem;
-      margin: 2rem auto;
+      margin: 1.5rem auto;
+      max-width: 100%;
+      height: auto;
       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+    
+    @media (min-width: 640px) {
+      .prose img {
+        margin: 2rem auto;
+      }
     }
     
     /* Styling untuk link dalam artikel */
@@ -175,9 +215,16 @@ export const ContentfulBlogPost: React.FC<BlogPostProps> = ({ post }) => {
     .toc-inline {
       background-color: #f7fafc;
       border-radius: 0.5rem;
-      padding: 1.5rem;
-      margin: 2rem 0;
+      padding: 1.25rem;
+      margin: 1.5rem 0;
       border: 1px solid #e2e8f0;
+    }
+    
+    @media (min-width: 640px) {
+      .toc-inline {
+        padding: 1.5rem;
+        margin: 2rem 0;
+      }
     }
     
     .dark .toc-inline {
@@ -186,11 +233,17 @@ export const ContentfulBlogPost: React.FC<BlogPostProps> = ({ post }) => {
     }
     
     .toc-inline h4 {
-      font-size: 1.25rem;
+      font-size: 1.125rem;
       font-weight: 600;
       margin-bottom: 1rem;
       display: flex;
       align-items: center;
+    }
+    
+    @media (min-width: 640px) {
+      .toc-inline h4 {
+        font-size: 1.25rem;
+      }
     }
     
     .toc-inline ul {
@@ -221,7 +274,13 @@ export const ContentfulBlogPost: React.FC<BlogPostProps> = ({ post }) => {
     }
     
     .toc-inline .toc-h3 {
-      padding-left: 1.5rem;
+      padding-left: 1.25rem;
+    }
+    
+    @media (min-width: 640px) {
+      .toc-inline .toc-h3 {
+        padding-left: 1.5rem;
+      }
     }
   `;
 
@@ -383,10 +442,10 @@ export const ContentfulBlogPost: React.FC<BlogPostProps> = ({ post }) => {
             <article className="prose prose-lg prose-slate dark:prose-invert mx-auto">
               <style>{codeStyles}</style>
               {/* Header */}
-              <header className="mb-12">
+              <header className="mb-8 sm:mb-12">
                 {/* Cover Image */}
                 {post.fields.image && (
-                  <div className="relative w-full h-[50vh] mb-8 rounded-2xl overflow-hidden shadow-xl">
+                  <div className="relative w-full h-[30vh] sm:h-[40vh] md:h-[50vh] mb-6 sm:mb-8 rounded-2xl overflow-hidden shadow-xl">
                     <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-transparent z-10"></div>
                     <img 
                       src={`https:${post.fields.image.fields.file.url}`} 
@@ -397,42 +456,37 @@ export const ContentfulBlogPost: React.FC<BlogPostProps> = ({ post }) => {
                 )}
                 
                 {/* Title and Meta */}
-                <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white leading-tight">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 text-gray-900 dark:text-white leading-tight">
                   {post.fields.title}
                 </h1>
                 
-                <div className="flex flex-wrap items-center gap-4 text-gray-600 dark:text-gray-400 mb-8">
+                <div className="flex flex-wrap items-center gap-4 text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-6">
                   {/* Date */}
                   {post.fields.publishDate && (
-                    <div className="flex items-center">
-                      <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                      </svg>
-                      <time dateTime={post.fields.publishDate}>
-                        {new Date(post.fields.publishDate).toLocaleDateString('id-ID', {
-                          year: 'numeric',
-                          month: 'long',
-                          day: 'numeric'
-                        })}
-                      </time>
-                    </div>
+                    <time dateTime={post.fields.publishDate}>
+                      {new Date(post.fields.publishDate).toLocaleDateString('id-ID', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                      })}
+                    </time>
                   )}
                   
                   {/* Reading Time */}
-                  <div className="flex items-center">
-                    <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <span className="flex items-center">
+                    <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                    <span>{post.fields.readingTime || estimatedReadTime} min read</span>
-                  </div>
+                    {post.fields.readingTime || estimatedReadTime} min read
+                  </span>
                   
                   {/* Tags */}
                   {post.fields.tags && post.fields.tags.length > 0 && (
-                    <div className="flex flex-wrap gap-2 mt-2 md:mt-0">
+                    <div className="flex flex-wrap gap-2">
                       {post.fields.tags.map((tag, index) => (
-                        <span 
-                          key={index} 
-                          className="px-3 py-1 bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 rounded-full text-sm font-medium"
+                        <span
+                          key={index}
+                          className="px-2 py-1 text-xs sm:text-sm bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full"
                         >
                           {tag}
                         </span>

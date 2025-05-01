@@ -80,6 +80,10 @@ const ContentfulBlog: React.FC = () => {
         description={fields.seoDescription || 'Blog post from Boedi Fiqih'}
         keywords={seoKeywords}
         url={`/blog/${slug}`}
+        type="article"
+        author={fields.author || 'Boedi Fiqih'}
+        publishedTime={fields.publishDate}
+        modifiedTime={fields.updatedAt}
       />
       <div className="container mx-auto px-4 py-12">
         <div className="max-w-4xl mx-auto">

@@ -7,13 +7,21 @@ interface SeoProps {
   image?: string;
   url: string;
   keywords?: string[];
+  type?: 'website' | 'article' | 'profile';
+  author?: string;
+  publishedTime?: string;
+  modifiedTime?: string;
 }
 
 const Seo: React.FC<SeoProps> = ({
   title,
   description,
-  image = 'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80',
+  image = 'https://bmmf.site/assets/images/fotome.webp',
   url,
+  type = 'website',
+  author = 'Boedi Fiqih',
+  publishedTime = '2025-04-28T00:00:00+07:00',
+  modifiedTime = '2025-04-28T00:00:00+07:00',
   keywords = [
     'web developer',
     'full stack web developer',
@@ -92,54 +100,63 @@ const Seo: React.FC<SeoProps> = ({
     'Programming'
   ]
 }) => {
+  // Format the title to include the site name for better SEO
+  const formattedTitle = `${title} | Boedi Fiqih`;
+
   return (
     <Helmet>
       {/* Basic Meta Tags */}
-      <title>{title}</title>
+      <title>{formattedTitle}</title>
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords.join(', ')} />
       
       {/* Open Graph / Facebook */}
-      <meta property="og:type" content="article" />
+      <meta property="og:type" content={type} />
       <meta property="og:url" content={url} />
-      <meta property="og:title" content={title} />
+      <meta property="og:title" content={formattedTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={image} />
       
       {/* Twitter */}
       <meta property="twitter:card" content="summary_large_image" />
       <meta property="twitter:url" content={url} />
-      <meta property="twitter:title" content={title} />
+      <meta property="twitter:title" content={formattedTitle} />
       <meta property="twitter:description" content={description} />
       <meta property="twitter:image" content={image} />
       
       {/* Article Meta Tags */}
-      <meta property="article:published_time" content="2025-04-28T00:00:00+07:00" />
-      <meta property="article:modified_time" content="2025-04-28T00:00:00+07:00" />
-      <meta property="article:author" content="Boedi Fiqih" />
+      {type === 'article' && (
+        <>
+          <meta property="article:published_time" content={publishedTime} />
+          <meta property="article:modified_time" content={modifiedTime} />
+          <meta property="article:author" content={author} />
+        </>
+      )}
       
       {/* Structured Data */}
       <script type="application/ld+json">
         {JSON.stringify({
           '@context': 'https://schema.org',
-          '@type': 'Article',
-          headline: title,
+          '@type': type === 'article' ? 'Article' : type === 'profile' ? 'ProfilePage' : 'WebPage',
+          headline: formattedTitle,
           description: description,
           image: image,
           author: {
             '@type': 'Person',
-            name: 'Boedi Fiqih'
+            name: author
           },
           publisher: {
             '@type': 'Organization',
             name: 'Boedi Fiqih',
             logo: {
               '@type': 'ImageObject',
-              url: 'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80'
+              url: 'https://bmmf.site/assets/images/fotome.webp'
             }
           },
-          datePublished: '2025-04-28T00:00:00+07:00',
-          dateModified: '2025-04-28T00:00:00+07:00'
+          ...(type === 'article' && {
+            datePublished: publishedTime,
+            dateModified: modifiedTime
+          })
         })}
       </script>
     </Helmet>
