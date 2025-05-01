@@ -1,13 +1,9 @@
 {
   "version": 2,
-  "routes": [
+  "rewrites": [
     {
-      "src": "/blog/:slug",
-      "dest": "/blog/ContentfulBlog"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
+      "source": "/blog/:slug",
+      "destination": "/blog/ContentfulBlog"
     }
   ]
 }
