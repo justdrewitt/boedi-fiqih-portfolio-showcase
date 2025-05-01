@@ -52,13 +52,20 @@ const ContentfulBlog: React.FC = () => {
   }
 
   const { fields } = post;
+  
+  // Ensure SEO keywords is always an array
+  const seoKeywords = Array.isArray(fields.seoKeywords) 
+    ? fields.seoKeywords 
+    : fields.seoKeywords 
+      ? [fields.seoKeywords] 
+      : ['React', 'JavaScript', 'Web Development'];
 
   return (
     <Layout location={location}>
       <Seo
-        title={fields.seoTitle}
-        description={fields.seoDescription}
-        keywords={fields.seoKeywords}
+        title={fields.seoTitle || fields.title || 'Blog Post'}
+        description={fields.seoDescription || 'Blog post from Boedi Fiqih'}
+        keywords={seoKeywords}
         url={`/blog/${slug}`}
       />
       <div className="container mx-auto px-4 py-12">
