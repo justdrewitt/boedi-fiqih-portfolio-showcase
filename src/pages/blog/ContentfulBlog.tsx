@@ -11,13 +11,28 @@ const ContentfulBlog: React.FC = () => {
   const [loading, setLoading] = React.useState(true);
   const location = useLocation();
 
+  console.log('Received slug:', slug);
+
   React.useEffect(() => {
+    console.log('Fetching blog post with slug:', slug);
+    
     const fetchPost = async () => {
       try {
+        console.log('Attempting to fetch from Contentful...');
         const entry = await getEntryById('blogPage', slug);
+        console.log('Successfully fetched entry:', {
+          title: entry.fields.title,
+          slug: entry.fields.slug
+        });
         setPost(entry);
       } catch (error) {
         console.error('Error fetching blog post:', error);
+        if (error instanceof Error) {
+          console.error('Error details:', {
+            message: error.message,
+            stack: error.stack
+          });
+        }
       } finally {
         setLoading(false);
       }
