@@ -2,26 +2,27 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import ServiceCard from '../components/Services/ServiceCard';
 import Footer from '../components/Footer';
+import Seo from '../components/Seo';
 
 const services = [
   {
     category: 'Web Development',
     items: [
       {
-        title: 'Full Stack Development',
-        description: 'Building custom web applications using modern technologies and best practices.',
+        title: 'Full Stack Web Development',
+        description: 'Professional full stack web development services for building custom web applications using modern technologies and best practices. Specializing in both frontend and backend development. Learn about full stack developer skills and what web development is all about.',
         technologies: ['React', 'Next.js', 'Vue.js', 'Angular', 'TypeScript'],
         icon: '💻'
       },
       {
         title: 'Progressive Web Apps',
-        description: 'Creating fast, reliable, and engaging web applications that work offline.',
+        description: 'Creating fast, reliable, and engaging web applications that work offline. Expert website development for modern businesses. Perfect for web site designers and website coders.',
         technologies: ['PWA', 'Service Workers', 'Web Manifest', 'Cache API'],
         icon: '📱'
       },
       {
         title: 'Web Performance Optimization',
-        description: 'Optimizing website speed and user experience through technical optimization.',
+        description: 'Optimizing website speed and user experience through technical optimization. Professional site development and performance tuning by a web specialist.',
         technologies: ['Core Web Vitals', 'Lighthouse', 'CDN', 'Image Optimization'],
         icon: '⚡'
       }
@@ -31,20 +32,20 @@ const services = [
     category: 'SEO & Analytics',
     items: [
       {
-        title: 'Technical SEO',
-        description: 'Implementing technical SEO best practices for better search engine visibility.',
+        title: 'Technical SEO Development',
+        description: 'Expert SEO developer services implementing technical SEO best practices for better search engine visibility. Full stack SEO services combined with web development expertise.',
         technologies: ['Schema Markup', 'Sitemaps', 'Mobile Optimization'],
         icon: '🔍'
       },
       {
         title: 'Performance Optimization',
-        description: 'Enhancing website speed and user experience through technical optimization.',
+        description: 'Enhancing website speed and user experience through technical optimization. Professional stack full development services by an IT full stack developer.',
         technologies: ['Web Vitals', 'CDN', 'Caching', 'Lazy Loading'],
         icon: '📈'
       },
       {
         title: 'Analytics Implementation',
-        description: 'Setting up and configuring analytics tools for data-driven decisions.',
+        description: 'Setting up and configuring analytics tools for data-driven decisions. Expert developer for website services by a web specialist.',
         technologies: ['Google Analytics', 'GA4', 'Event Tracking'],
         icon: '📊'
       }
@@ -124,6 +125,11 @@ const services = [
 const Services = () => {
   return (
     <div className="min-h-screen flex flex-col">
+      <Seo
+        title="Web Development & SEO Services - Web Specialist & Full Stack Developer"
+        description="Professional web development and SEO services by a web specialist and full stack developer. Specializing in custom website development, SEO optimization, and full stack solutions. Learn about full stack developer courses and what web development is all about."
+        url="https://bmmf.site/services"
+      />
       <main className="flex-grow">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -133,71 +139,30 @@ const Services = () => {
           className="min-h-screen bg-gradient-to-b from-gray-50 to-white"
         >
           <div className="container mx-auto px-4 py-16">
-            <h1 className="text-4xl font-bold text-teal-600 mb-12 text-center">My Services</h1>
+            <h1 className="text-4xl font-bold text-teal-600 mb-12 text-center">Services</h1>
             
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-            >
-              {services.map((category, categoryIndex) => (
-                <motion.div
-                  key={categoryIndex}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: 0.5,
-                    delay: categoryIndex * 0.1
-                  }}
-                  className="bg-white rounded-xl shadow-lg p-6"
-                >
-                  <h2 className="text-2xl font-bold text-teal-600 mb-6">{category.category}</h2>
-                  
-                  <div className="grid grid-cols-1 gap-6">
-                    {category.items.map((service, serviceIndex) => (
-                      <motion.div
-                        key={serviceIndex}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{
-                          duration: 0.5,
-                          delay: serviceIndex * 0.1
-                        }}
-                        className="bg-gray-50 rounded-xl p-4 hover:bg-gray-100 transition-colors duration-300"
-                      >
-                        <div className="flex items-center gap-4 mb-4">
-                          <div className="text-3xl text-teal-600">{service.icon}</div>
-                          <h3 className="text-xl font-semibold">{service.title}</h3>
-                        </div>
-                        
-                        <p className="text-gray-600 mb-4">{service.description}</p>
-                        
-                        <div className="flex flex-wrap gap-2">
-                          {service.technologies.map((tech, techIndex) => (
-                            <motion.span
-                              key={techIndex}
-                              initial={{ opacity: 0, scale: 0.8 }}
-                              whileInView={{ opacity: 1, scale: 1 }}
-                              viewport={{ once: true }}
-                              transition={{
-                                duration: 0.5,
-                                delay: techIndex * 0.1
-                              }}
-                              className="px-3 py-1 bg-teal-100 text-teal-700 rounded-full text-sm"
-                            >
-                              {tech}
-                            </motion.span>
-                          ))}
-                        </div>
-                      </motion.div>
-                    ))}
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
+            <div className="prose max-w-none mb-12">
+              <p className="text-lg text-gray-700 dark:text-gray-300 text-center">
+                As a web specialist and full stack developer, I offer comprehensive web development and SEO services to help your business succeed online. Whether you need to understand apa itu web developer, want to learn about full stack developer courses, or need an IT full stack developer, I'm here to help.
+              </p>
+            </div>
+            
+            {services.map((category, index) => (
+              <div key={index} className="mb-16">
+                <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-8">{category.category}</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {category.items.map((service, serviceIndex) => (
+                    <ServiceCard
+                      key={serviceIndex}
+                      title={service.title}
+                      description={service.description}
+                      technologies={service.technologies}
+                      icon={service.icon}
+                    />
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </motion.div>
       </main>
