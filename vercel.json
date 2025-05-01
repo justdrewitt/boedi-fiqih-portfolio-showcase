@@ -2,6 +2,10 @@
   "version": 2,
   "rewrites": [
     {
+      "source": "/test-contentful",
+      "destination": "/test-contentful"
+    },
+    {
       "source": "/blog/:slug",
       "destination": "/blog/ContentfulBlog"
     }
