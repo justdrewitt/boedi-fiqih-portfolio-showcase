@@ -495,6 +495,210 @@ export const ContentfulBlogPost: React.FC<BlogPostProps> = ({ post }) => {
                     )}
                   </ul>
                   
+                  {/* Contoh kode */}
+                  {post.fields.title && post.fields.title.toLowerCase().includes('devops') && (
+                    <div className="my-8">
+                      <h2 id="contoh-kode">Contoh Kode</h2>
+                      <p className="mb-4">Berikut adalah contoh konfigurasi CI/CD pipeline menggunakan GitHub Actions:</p>
+                      <div className="rounded-lg overflow-hidden border border-gray-700 shadow-lg">
+                        {/* Terminal Header */}
+                        <div className="bg-gray-800 px-4 py-2 flex items-center justify-between">
+                          <div className="flex items-center">
+                            <div className="flex space-x-2 mr-4">
+                              <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                              <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                              <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                            </div>
+                            <span className="text-gray-200 text-sm font-medium">GitHub Actions</span>
+                          </div>
+                          <div className="text-gray-400 text-xs">
+                            workflow.yml
+                          </div>
+                        </div>
+                        
+                        {/* Code Content */}
+                        <pre className="bg-gray-900 text-gray-100 p-4 overflow-x-auto font-mono text-sm leading-relaxed whitespace-pre m-0">
+                          <code>{`name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Run tests
+      run: npm test
+      
+    - name: Build project
+      run: npm run build
+      
+    - name: Deploy to production
+      if: github.ref == 'refs/heads/main'
+      run: |
+        echo "Deploying to production server..."
+        # Add your deployment commands here`}</code>
+                        </pre>
+                      </div>
+                    </div>
+                  )}
+                  
+                  {post.fields.title && post.fields.title.toLowerCase().includes('react') && (
+                    <div className="my-8">
+                      <h2 id="contoh-kode">Contoh Kode</h2>
+                      <p className="mb-4">Berikut adalah contoh komponen React dengan Hooks:</p>
+                      <div className="rounded-lg overflow-hidden border border-gray-700 shadow-lg">
+                        {/* Terminal Header */}
+                        <div className="bg-gray-800 px-4 py-2 flex items-center justify-between">
+                          <div className="flex items-center">
+                            <div className="flex space-x-2 mr-4">
+                              <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                              <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                              <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                            </div>
+                            <span className="text-gray-200 text-sm font-medium">React</span>
+                          </div>
+                          <div className="text-gray-400 text-xs">
+                            UserProfile.jsx
+                          </div>
+                        </div>
+                        
+                        {/* Code Content */}
+                        <pre className="bg-gray-900 text-gray-100 p-4 overflow-x-auto font-mono text-sm leading-relaxed whitespace-pre m-0">
+                          <code>{`import React, { useState, useEffect } from 'react';
+
+function UserProfile({ userId }) {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  
+  useEffect(() => {
+    async function fetchUserData() {
+      try {
+        setLoading(true);
+        const response = await fetch(\`https://api.example.com/users/\${userId}\`);
+        
+        if (!response.ok) {
+          throw new Error('Failed to fetch user data');
+        }
+        
+        const userData = await response.json();
+        setUser(userData);
+        setError(null);
+      } catch (err) {
+        setError(err.message);
+        setUser(null);
+      } finally {
+        setLoading(false);
+      }
+    }
+    
+    fetchUserData();
+  }, [userId]);
+  
+  if (loading) {
+    return <div>Loading user data...</div>;
+  }
+  
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+  
+  return (
+    <div className="user-profile">
+      <h2>{user.name}</h2>
+      <p>Email: {user.email}</p>
+      <p>Location: {user.location}</p>
+    </div>
+  );
+}`}</code>
+                        </pre>
+                      </div>
+                    </div>
+                  )}
+                  
+                  {post.fields.title && post.fields.title.toLowerCase().includes('web') && (
+                    <div className="my-8">
+                      <h2 id="contoh-kode">Contoh Kode</h2>
+                      <p className="mb-4">Berikut adalah contoh layout modern dengan CSS Grid:</p>
+                      <div className="rounded-lg overflow-hidden border border-gray-700 shadow-lg">
+                        {/* Terminal Header */}
+                        <div className="bg-gray-800 px-4 py-2 flex items-center justify-between">
+                          <div className="flex items-center">
+                            <div className="flex space-x-2 mr-4">
+                              <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                              <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                              <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                            </div>
+                            <span className="text-gray-200 text-sm font-medium">CSS</span>
+                          </div>
+                          <div className="text-gray-400 text-xs">
+                            styles.css
+                          </div>
+                        </div>
+                        
+                        {/* Code Content */}
+                        <pre className="bg-gray-900 text-gray-100 p-4 overflow-x-auto font-mono text-sm leading-relaxed whitespace-pre m-0">
+                          <code>{`/* Modern CSS Grid Layout */
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 2rem;
+  padding: 2rem;
+}
+
+.card {
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 1.5rem;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.75rem;
+}
+
+.card-description {
+  color: #666;
+  line-height: 1.6;
+}`}</code>
+                        </pre>
+                      </div>
+                    </div>
+                  )}
+                  
                   <h2 id="hubungi-kami">Hubungi Kami</h2>
                   <p>
                     Jika Anda memiliki pertanyaan atau ingin mendiskusikan topik ini lebih lanjut, jangan ragu untuk menghubungi kami melalui:
