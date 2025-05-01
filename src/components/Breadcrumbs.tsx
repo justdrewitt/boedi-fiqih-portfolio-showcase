@@ -1,0 +1,35 @@
+import { Link, useLocation } from 'react-router-dom';
+import { ChevronRight } from 'lucide-react';
+
+const Breadcrumbs = () => {
+  const location = useLocation();
+  const pathnames = location.pathname.split('/').filter((x) => x);
+
+  return (
+    <nav className="flex items-center space-x-2 text-sm text-gray-600 dark:text-gray-400 mb-4">
+      <Link to="/" className="hover:text-primary">
+        Home
+      </Link>
+      {pathnames.map((name, index) => {
+        const routeTo = `/${pathnames.slice(0, index + 1).join('/')}`;
+        const isLast = index === pathnames.length - 1;
+        const formattedName = name.charAt(0).toUpperCase() + name.slice(1);
+
+        return (
+          <div key={name} className="flex items-center space-x-2">
+            <ChevronRight className="h-4 w-4" />
+            {isLast ? (
+              <span className="text-primary">{formattedName}</span>
+            ) : (
+              <Link to={routeTo} className="hover:text-primary">
+                {formattedName}
+              </Link>
+            )}
+          </div>
+        );
+      })}
+    </nav>
+  );
+};
+
+export default Breadcrumbs; 
