@@ -126,7 +126,7 @@ const BlogList: React.FC<BlogListProps> = ({ location }) => {
                     <a href={`/blog/${post.slug}`} className="hover:text-blue-600 dark:hover:text-blue-400">
                       {post.title}
                     </a>
-                  </h2>
+                    </h2>
                   <p className="text-gray-600 dark:text-gray-400 mb-4">
                     {post.excerpt}
                   </p>
@@ -139,11 +139,11 @@ const BlogList: React.FC<BlogListProps> = ({ location }) => {
             ))}
           </div>
 
-          <div className="flex justify-center mt-12">
+            <div className="flex justify-center mt-12">
             <button className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
               Load More
-            </button>
-          </div>
+                </button>
+            </div>
         </div>
       </div>
     </>
