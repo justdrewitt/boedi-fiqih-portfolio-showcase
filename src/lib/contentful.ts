@@ -44,10 +44,18 @@ export const getEntries = async (contentType: string) => {
   }
 };
 
-export const getEntryById = async (contentType: string, id: string) => {
+export const getEntryById = async (contentType: string, slug: string) => {
   try {
-    const response = await client.getEntry(id);
-    return response;
+    const response = await client.getEntries({
+      content_type: contentType,
+      'fields.slug': slug
+    });
+    
+    if (response.items.length === 0) {
+      throw new Error(`No entry found for slug: ${slug}`);
+    }
+    
+    return response.items[0];
   } catch (error) {
     console.error('Error fetching Contentful entry:', error);
     throw error;
