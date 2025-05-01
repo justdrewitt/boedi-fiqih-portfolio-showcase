@@ -14,6 +14,14 @@ import BlogIndex from "./pages/blog/index";
 import { TestContentful } from "./pages/TestContentful";
 import ContentfulBlog from "./pages/blog/ContentfulBlog";
 import Navbar from "./components/Navbar";
+import Faq from "./pages/Faq";
+import CaseStudies from "./pages/CaseStudies";
+import FashionEcommerce from "./pages/case-studies/FashionEcommerce";
+import TechCompany from "./pages/case-studies/TechCompany";
+import Restaurant from "./pages/case-studies/Restaurant";
+import Education from "./pages/case-studies/Education";
+import Pricing from "./pages/Pricing";
+import OurClients from "./pages/OurClients";
 
 const queryClient = new QueryClient();
 
@@ -37,6 +45,14 @@ const App = () => (
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/blog" element={<BlogIndex />} />
                   <Route path="/blog/:slug" element={<ContentfulBlog />} />
+                  <Route path="/faq" element={<Faq />} />
+                  <Route path="/case-studies" element={<CaseStudies />} />
+                  <Route path="/case-studies/fashion-ecommerce" element={<FashionEcommerce />} />
+                  <Route path="/case-studies/tech-company" element={<TechCompany />} />
+                  <Route path="/case-studies/restaurant" element={<Restaurant />} />
+                  <Route path="/case-studies/education" element={<Education />} />
+                  <Route path="/pricing" element={<Pricing />} />
+                  <Route path="/our-clients" element={<OurClients />} />
                   {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                   <Route path="*" element={<NotFound />} />
                 </Routes>
