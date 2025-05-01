@@ -65,23 +65,127 @@ export const ContentfulBlogPost: React.FC<BlogPostProps> = ({ post }) => {
     .prose pre {
       background-color: #1a202c;
       color: #e2e8f0;
-      padding: 1rem;
+      padding: 0.75rem;
       border-radius: 0.5rem;
       overflow-x: auto;
+      max-width: 100%;
+      width: 100%;
+      position: relative;
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      font-size: 0.875rem;
-      line-height: 1.7;
+      font-size: 0.75rem;
+      line-height: 1.5;
       white-space: pre;
-      margin: 1.5rem 0;
+      margin: 1rem 0;
       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      scrollbar-color: #4a5568 #2d3748;
     }
     
-    .prose code {
-      background-color: rgba(209, 213, 219, 0.2);
-      border-radius: 0.25rem;
-      padding: 0.125rem 0.25rem;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      font-size: 0.875rem;
+    .prose pre code {
+      display: inline-block;
+      min-width: 100%;
+      padding: 0;
+      background-color: transparent;
+      border-radius: 0;
+      font-size: inherit;
+      font-family: inherit;
+      line-height: inherit;
+    }
+    
+    @media (min-width: 640px) {
+      .prose pre {
+        padding: 1rem;
+        font-size: 0.875rem;
+        line-height: 1.7;
+        margin: 1.5rem 0;
+      }
+    }
+    
+    /* Terminal Header Style */
+    .prose .terminal-header {
+      background-color: #2d3748;
+      padding: 0.5rem 1rem;
+      border-top-left-radius: 0.5rem;
+      border-top-right-radius: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .prose .terminal-header .dot {
+      width: 0.75rem;
+      height: 0.75rem;
+      border-radius: 50%;
+    }
+    
+    .prose .terminal-header .dot-red {
+      background-color: #fc8181;
+    }
+    
+    .prose .terminal-header .dot-yellow {
+      background-color: #f6e05e;
+    }
+    
+    .prose .terminal-header .dot-green {
+      background-color: #68d391;
+    }
+    
+    .prose .terminal-window {
+      margin: 1.5rem 0;
+    }
+    
+    .prose .terminal-window pre {
+      margin: 0;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+    
+    /* Code block with line numbers */
+    .prose pre.with-line-numbers {
+      padding-left: 3.5rem;
+      counter-reset: line;
+    }
+    
+    .prose pre.with-line-numbers > code {
+      position: relative;
+    }
+    
+    .prose pre.with-line-numbers > code::before {
+      content: counter(line);
+      counter-increment: line;
+      position: absolute;
+      left: -2.5rem;
+      width: 2rem;
+      text-align: right;
+      color: #4a5568;
+      padding-right: 0.5rem;
+      border-right: 1px solid #2d3748;
+    }
+    
+    /* Horizontal scrolling container */
+    .prose .code-container {
+      position: relative;
+      width: 100%;
+      max-width: 100vw;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    
+    @media (min-width: 640px) {
+      .prose .code-container {
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+    
+    .prose .code-container pre {
+      margin: 0;
+      width: 100%;
     }
     
     .prose p {
@@ -94,15 +198,46 @@ export const ContentfulBlogPost: React.FC<BlogPostProps> = ({ post }) => {
     .prose p.code-paragraph {
       background-color: #1a202c;
       color: #e2e8f0;
-      padding: 1rem;
+      padding: 0.75rem;
       border-radius: 0.5rem;
       overflow-x: auto;
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      font-size: 0.875rem;
-      line-height: 1.7;
+      font-size: 0.75rem;
+      line-height: 1.5;
       white-space: pre;
-      margin: 1.5rem 0;
+      margin: 1rem 0;
       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      scrollbar-color: #4a5568 #2d3748;
+    }
+    
+    @media (min-width: 640px) {
+      .prose p.code-paragraph {
+        padding: 1rem;
+        font-size: 0.875rem;
+        line-height: 1.7;
+        margin: 1.5rem 0;
+      }
+    }
+    
+    .prose p.code-paragraph::-webkit-scrollbar {
+      height: 8px;
+      width: 8px;
+    }
+    
+    .prose p.code-paragraph::-webkit-scrollbar-track {
+      background: #2d3748;
+      border-radius: 4px;
+    }
+    
+    .prose p.code-paragraph::-webkit-scrollbar-thumb {
+      background: #4a5568;
+      border-radius: 4px;
+    }
+    
+    .prose p.code-paragraph::-webkit-scrollbar-thumb:hover {
+      background: #718096;
     }
     
     .prose h2 {
@@ -286,13 +421,52 @@ export const ContentfulBlogPost: React.FC<BlogPostProps> = ({ post }) => {
 
   // Tambahkan efek untuk mengubah tampilan kode setelah komponen di-render
   useEffect(() => {
-    // Format kode hanya jika belum diformat
     if (!codeFormatted) {
       const codeBlocks = document.querySelectorAll('pre code');
       
-      codeBlocks.forEach(codeBlock => {
-        // Tambahkan class untuk styling
-        codeBlock.parentElement?.classList.add('code-block');
+      codeBlocks.forEach((codeBlock, index) => {
+        const pre = codeBlock.parentElement;
+        if (!pre) return;
+        
+        // Wrap pre in container
+        const container = document.createElement('div');
+        container.className = 'code-container';
+        pre.parentNode?.insertBefore(container, pre);
+        container.appendChild(pre);
+        
+        // Add terminal header
+        const header = document.createElement('div');
+        header.className = 'terminal-header';
+        
+        // Add dots
+        const dotRed = document.createElement('span');
+        dotRed.className = 'dot dot-red';
+        const dotYellow = document.createElement('span');
+        dotYellow.className = 'dot dot-yellow';
+        const dotGreen = document.createElement('span');
+        dotGreen.className = 'dot dot-green';
+        
+        header.appendChild(dotRed);
+        header.appendChild(dotYellow);
+        header.appendChild(dotGreen);
+        
+        // Add filename if available
+        const filename = document.createElement('span');
+        filename.className = 'text-sm text-gray-400';
+        filename.textContent = `code-block-${index + 1}`;
+        header.appendChild(filename);
+        
+        // Create terminal window
+        const terminal = document.createElement('div');
+        terminal.className = 'terminal-window';
+        
+        // Move pre into terminal
+        container.appendChild(terminal);
+        terminal.appendChild(header);
+        terminal.appendChild(pre);
+        
+        // Add line numbers
+        pre.classList.add('with-line-numbers');
       });
       
       setCodeFormatted(true);
