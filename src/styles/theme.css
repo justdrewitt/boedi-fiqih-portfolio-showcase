@@ -1,0 +1,39 @@
+:root {
+  /* Primary Colors */
+  --color-primary-50: #feecec;
+  --color-primary-100: #fcd4d4;
+  --color-primary-200: #f9aeae;
+  --color-primary-300: #f78383;
+  --color-primary-400: #f45d5d;
+  --color-primary-500: #f13131;
+  --color-primary-600: #dc0f0f;
+  --color-primary-700: #a20b0b;
+  --color-primary-800: #6e0707;
+  --color-primary-900: #350404;
+  --color-primary-950: #1d0202;
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(to right, var(--color-primary-500), var(--color-primary-600));
+  --gradient-primary-reverse: linear-gradient(to right, var(--color-primary-600), var(--color-primary-500));
+
+  /* Text Colors */
+  --text-primary: var(--color-primary-500);
+  --text-primary-dark: var(--color-primary-600);
+  --text-primary-light: var(--color-primary-400);
+
+  /* Background Colors */
+  --bg-primary-light: var(--color-primary-50);
+  --bg-primary: var(--color-primary-500);
+  --bg-primary-dark: var(--color-primary-600);
+
+  /* Border Colors */
+  --border-primary: var(--color-primary-200);
+  --border-primary-dark: var(--color-primary-300);
+
+  /* Hover Colors */
+  --hover-primary: var(--color-primary-600);
+  --hover-primary-light: var(--color-primary-400);
+
+  /* Shadow Colors */
+  --shadow-primary: 0 4px 6px -1px rgba(241, 49, 49, 0.1), 0 2px 4px -1px rgba(241, 49, 49, 0.06);
+} 

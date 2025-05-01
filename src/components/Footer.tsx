@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import {
   Github,
   Linkedin,
@@ -13,30 +13,30 @@ import {
 const Footer = () => {
   const quickLinks = [
     {
-      title: 'About',
+      title: 'Tentang',
       links: [
-        { text: 'About Me', href: '/about' },
-        { text: 'Experience', href: '/about#experience' },
-        { text: 'Education', href: '/about#education' },
-        { text: 'Skills', href: '/about#skills' }
+        { text: 'Tentang Kami', href: '/about' },
+        { text: 'Pengalaman', href: '/about#experience' },
+        { text: 'Pendidikan', href: '/about#education' },
+        { text: 'Keahlian', href: '/about#skills' }
       ]
     },
     {
-      title: 'Services',
+      title: 'Layanan',
       links: [
-        { text: 'Web Development', href: '/services#web-development' },
+        { text: 'Pengembangan Web', href: '/services#web-development' },
         { text: 'SEO & Analytics', href: '/services#seo-analytics' },
         { text: 'DevOps', href: '/services#devops' },
         { text: 'AI & ML', href: '/services#ai-ml' }
       ]
     },
     {
-      title: 'Resources',
+      title: 'Sumber Daya',
       links: [
         { text: 'Blog', href: '/blog' },
-        { text: 'Case Studies', href: '/case-studies' },
+        { text: 'Studi Kasus', href: '/case-studies' },
         { text: 'FAQ', href: '/faq' },
-        { text: 'Pricing', href: '/pricing' }
+        { text: 'Harga', href: '/pricing' }
       ]
     }
   ];
@@ -60,16 +60,14 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-navy-900 text-white pt-16 pb-8">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          {/* Company Info */}
+    <footer className="bg-white border-t border-gray-200">
+      <div className="container mx-auto px-4 py-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <span className="text-3xl font-bold font-display">BMMF</span>
-            <p className="mt-4 max-w-xs text-gray-400">
-              Full Stack Web Developer and SEO Specialist helping businesses succeed online with beautiful, high-performing websites.
+            <h3 className="text-lg font-semibold text-[#f13131] mb-4">Tentang Kami</h3>
+            <p className="text-gray-600">
+              Kami adalah tim profesional yang berdedikasi untuk memberikan solusi digital terbaik.
             </p>
-            
             <div className="mt-6 flex gap-4">
               {socialLinks.map((link, index) => (
                 <motion.a
@@ -78,7 +76,7 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   title={link.tooltip}
-                  className="text-gray-400 hover:text-white transition-colors duration-300"
+                  className="text-gray-600 hover:text-[#f13131] transition-colors duration-300"
                   whileHover={{ scale: 1.1 }}
                 >
                   {link.icon}
@@ -87,11 +85,10 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
           {quickLinks.map((section, index) => (
             <div key={index}>
-              <h3 className="text-lg font-semibold mb-4">{section.title}</h3>
-              <ul className="space-y-2 text-gray-400">
+              <h3 className="text-lg font-semibold text-[#f13131] mb-4">{section.title}</h3>
+              <ul className="space-y-2">
                 {section.links.map((link, idx) => (
                   <motion.li
                     key={idx}
@@ -105,7 +102,7 @@ const Footer = () => {
                   >
                     <Link
                       to={link.href}
-                      className="hover:text-white transition-colors duration-300"
+                      className="text-gray-600 hover:text-[#f13131] transition-colors duration-300"
                     >
                       {link.text}
                     </Link>
@@ -115,51 +112,29 @@ const Footer = () => {
             </div>
           ))}
 
-          {/* Newsletter */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Newsletter</h3>
-            <p className="text-gray-400 mb-4">
-              Get the latest updates on my projects and insights.
-            </p>
-            <form className="flex gap-2">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-2 rounded-lg bg-gray-800 text-white placeholder-gray-400"
-              />
-              <button
-                type="submit"
-                className="px-6 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors duration-300"
-              >
-                Subscribe
-              </button>
-            </form>
-          </div>
-
-          {/* Our Clients Button */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Our Clients</h3>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-teal-600 text-white py-2 px-4 rounded-lg font-semibold hover:bg-teal-700 transition-colors"
-            >
-              <Link to="/our-clients">Lihat Klien Kami</Link>
-            </motion.button>
+            <h3 className="text-lg font-semibold text-[#f13131] mb-4">Kontak</h3>
+            <ul className="space-y-2">
+              <li className="flex items-center text-gray-600">
+                <Mail size={20} className="mr-2 text-[#f13131]" />
+                <a href="mailto:contact@bmmf.site" className="text-gray-600 hover:text-[#f13131] transition-colors duration-300">contact@bmmf.site</a>
+              </li>
+              <li className="flex items-center text-gray-600">
+                <Phone size={20} className="mr-2 text-[#f13131]" />
+                <a href="tel:+628567209773" className="text-gray-600 hover:text-[#f13131] transition-colors duration-300">+62 8567209773</a>
+              </li>
+              <li className="flex items-center text-gray-600">
+                <MapPin size={20} className="mr-2 text-[#f13131]" />
+                Jakarta, Indonesia
+              </li>
+            </ul>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="border-t border-gray-800 mt-12 pt-8">
-          <div className="container mx-auto px-4">
-            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-              <p className="text-gray-400"> 2025 BMMF. All rights reserved.</p>
-              <div className="flex gap-6 text-gray-400">
-                <Link to="/privacy" className="hover:text-white transition-colors duration-300">Privacy Policy</Link>
-                <Link to="/terms" className="hover:text-white transition-colors duration-300">Terms of Service</Link>
-              </div>
-            </div>
-          </div>
+        <div className="mt-8 pt-8 border-t border-gray-200 text-center">
+          <p className="text-gray-600">
+            © {new Date().getFullYear()} Bmmf. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>

@@ -134,7 +134,7 @@ const Pricing = () => {
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ type: "spring", stiffness: 200, damping: 10 }}
-                className="inline-block bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm font-semibold mb-4"
+                className="inline-block bg-[#feecec] text-[#f13131] px-3 py-1 rounded-full text-sm font-semibold mb-4"
               >
                 Pilihan Paket
               </motion.span>
@@ -175,7 +175,7 @@ const Pricing = () => {
                       transition={{ type: "spring", stiffness: 200, damping: 10 }}
                       className="absolute -top-4 left-1/2 transform -translate-x-1/2"
                     >
-                      <span className="bg-teal-500 text-white px-4 py-1 rounded-full text-sm font-semibold">
+                      <span className="bg-[#f13131] text-white px-4 py-1 rounded-full text-sm font-semibold">
                         Paling Populer
                       </span>
                     </motion.div>
@@ -184,15 +184,15 @@ const Pricing = () => {
                     variants={cardVariants}
                     whileHover="hover"
                     className={`bg-white rounded-xl shadow-lg p-8 h-full ${
-                      plan.popular ? 'border-2 border-teal-500' : ''
-                    } ${selectedPlan === plan.name ? 'ring-2 ring-teal-500' : ''}`}
+                      plan.popular ? 'border-2 border-[#f13131]' : ''
+                    } ${selectedPlan === plan.name ? 'ring-2 ring-[#f13131]' : ''}`}
                     onClick={() => setSelectedPlan(plan.name)}
                   >
                     <motion.div
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
                       transition={{ delay: 0.4 + index * 0.1 }}
-                      className="text-4xl mb-4"
+                      className="text-4xl mb-4 text-[#f13131]"
                     >
                       {plan.icon}
                     </motion.div>
@@ -216,7 +216,7 @@ const Pricing = () => {
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: 0.6 + index * 0.1 }}
-                      className="text-4xl font-bold text-teal-600 mb-2"
+                      className="text-4xl font-bold text-[#f13131] mb-2"
                     >
                       {plan.price}
                     </motion.div>
@@ -242,7 +242,7 @@ const Pricing = () => {
                             initial={{ scale: 0 }}
                             animate={{ scale: 1 }}
                             transition={{ delay: 0.7 + index * 0.1 + featureIndex * 0.05 }}
-                            className="w-5 h-5 text-teal-600 mr-2"
+                            className="w-5 h-5 text-[#f13131] mr-2"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
@@ -258,7 +258,7 @@ const Pricing = () => {
                       whileTap={{ scale: 0.95 }}
                       className={`w-full py-3 px-6 rounded-lg font-semibold ${
                         plan.popular
-                          ? 'bg-teal-600 text-white hover:bg-teal-700'
+                          ? 'bg-[#f13131] text-white hover:bg-[#dc0f0f]'
                           : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
                       }`}
                     >
@@ -284,7 +284,7 @@ const Pricing = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-teal-600 text-white py-3 px-8 rounded-lg font-semibold hover:bg-teal-700"
+                className="bg-[#f13131] text-white py-3 px-8 rounded-lg font-semibold hover:bg-[#dc0f0f]"
               >
                 Hubungi Kami
               </motion.button>
