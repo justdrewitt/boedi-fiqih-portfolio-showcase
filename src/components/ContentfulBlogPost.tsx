@@ -357,7 +357,7 @@ export const ContentfulBlogPost: React.FC<BlogPostProps> = ({ post }) => {
   const formattedDate = date.toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
-    day: 'numeric',
+    day: 'numeric'
   });
 
   // Default image if image is not available
@@ -462,10 +462,65 @@ export const ContentfulBlogPost: React.FC<BlogPostProps> = ({ post }) => {
               </header>
               
               {/* Content */}
-              {post.fields.content ? (
+              {post.fields.content || post.fields.body ? (
                 <ContentfulRichText content={richTextContent} />
               ) : (
-                <p>No content available for this post.</p>
+                <div className="blog-content-default">
+                  <p className="text-lg mb-6">
+                    Maaf, konten untuk artikel ini sedang dalam proses penulisan. Silakan kembali lagi nanti untuk membaca artikel lengkapnya.
+                  </p>
+                  
+                  <h2 id="tentang-artikel">Tentang Artikel Ini</h2>
+                  <p>
+                    Artikel ini akan membahas tentang {post.fields.title}. Kami sedang menyiapkan konten yang berkualitas dan informatif untuk Anda.
+                  </p>
+                  
+                  <h2 id="konten-akan-datang">Konten yang Akan Datang</h2>
+                  <p>
+                    Beberapa topik yang akan dibahas dalam artikel ini:
+                  </p>
+                  <ul>
+                    {post.fields.tags && post.fields.tags.map((tag, index) => (
+                      <li key={index} className="mb-2">
+                        <strong>{tag}</strong>: Pembahasan mendalam tentang {tag} dan implementasinya.
+                      </li>
+                    ))}
+                    {(!post.fields.tags || post.fields.tags.length === 0) && (
+                      <>
+                        <li className="mb-2"><strong>Pengenalan</strong>: Dasar-dasar yang perlu Anda ketahui.</li>
+                        <li className="mb-2"><strong>Implementasi</strong>: Langkah-langkah praktis untuk diterapkan.</li>
+                        <li className="mb-2"><strong>Studi Kasus</strong>: Contoh penerapan di dunia nyata.</li>
+                        <li className="mb-2"><strong>Tips dan Trik</strong>: Cara mengoptimalkan penggunaan.</li>
+                      </>
+                    )}
+                  </ul>
+                  
+                  <h2 id="hubungi-kami">Hubungi Kami</h2>
+                  <p>
+                    Jika Anda memiliki pertanyaan atau ingin mendiskusikan topik ini lebih lanjut, jangan ragu untuk menghubungi kami melalui:
+                  </p>
+                  <ul>
+                    <li>Email: <a href="mailto:info@boedifiqih.com">info@boedifiqih.com</a></li>
+                    <li>Twitter: <a href="https://twitter.com/bfiqih" target="_blank" rel="noopener noreferrer">@bfiqih</a></li>
+                    <li>LinkedIn: <a href="https://www.linkedin.com/in/bfiqih/" target="_blank" rel="noopener noreferrer">Boedi Fiqih</a></li>
+                  </ul>
+                  
+                  <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-xl mt-10 mb-6">
+                    <h3 className="text-xl font-semibold mb-3 text-blue-700 dark:text-blue-300">Tertarik dengan artikel lainnya?</h3>
+                    <p className="mb-4">
+                      Sambil menunggu artikel ini selesai, Anda bisa membaca artikel lain yang mungkin menarik bagi Anda.
+                    </p>
+                    <a 
+                      href="/blog" 
+                      className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                    >
+                      <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                      </svg>
+                      Lihat Artikel Lainnya
+                    </a>
+                  </div>
+                </div>
               )}
             </article>
             
